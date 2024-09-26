@@ -1,6 +1,6 @@
 import Player from "./components/Player";
 import Song from "./components/Song";
-import { chillHop } from "./util";
+import { chillHop } from "./data";
 import "./styles/App.scss";
 import { useState, useRef } from "react";
 import Library from "./components/Library";
@@ -32,9 +32,12 @@ function App() {
         isPlaying={isPlaying}
         setIsPlaying={setIsPlaying}
         currentSong={currentSong}
+        setCurrentSong={setCurrentSong}
         audioRef={audioRef}
         setSongInfo={setSongInfo}
         songInfo={songInfo}
+        songs={songs}
+        setSongs={setSongs}
       ></Player>
       <Library
         audioRef={audioRef}
