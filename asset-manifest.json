@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/musicplayer/static/css/main.9c25a07c.css",
-    "main.js": "/musicplayer/static/js/main.fc5a23ab.js",
-    "static/js/453.6babfd3c.chunk.js": "/musicplayer/static/js/453.6babfd3c.chunk.js",
-    "static/media/Lato-Regular.ttf": "/musicplayer/static/media/Lato-Regular.9d883d540ee2b4de8024.ttf",
-    "index.html": "/musicplayer/index.html",
-    "main.9c25a07c.css.map": "/musicplayer/static/css/main.9c25a07c.css.map",
-    "main.fc5a23ab.js.map": "/musicplayer/static/js/main.fc5a23ab.js.map",
-    "453.6babfd3c.chunk.js.map": "/musicplayer/static/js/453.6babfd3c.chunk.js.map"
+    "main.css": "/Simple-React-Music-Player/static/css/main.6b022566.css",
+    "main.js": "/Simple-React-Music-Player/static/js/main.45d9e981.js",
+    "static/js/453.6babfd3c.chunk.js": "/Simple-React-Music-Player/static/js/453.6babfd3c.chunk.js",
+    "static/media/Lato-Regular.ttf": "/Simple-React-Music-Player/static/media/Lato-Regular.9d883d540ee2b4de8024.ttf",
+    "index.html": "/Simple-React-Music-Player/index.html",
+    "main.6b022566.css.map": "/Simple-React-Music-Player/static/css/main.6b022566.css.map",
+    "main.45d9e981.js.map": "/Simple-React-Music-Player/static/js/main.45d9e981.js.map",
+    "453.6babfd3c.chunk.js.map": "/Simple-React-Music-Player/static/js/453.6babfd3c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9c25a07c.css",
-    "static/js/main.fc5a23ab.js"
+    "static/css/main.6b022566.css",
+    "static/js/main.45d9e981.js"
   ]
 }
