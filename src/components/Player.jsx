@@ -38,10 +38,6 @@ const Player = ({
     setSongs(newSongs);
   };
 
-  // add active state
-  //States
-  // currentTime needs to 0 as otherwise the Input throws an error. Even if it's directly updated
-
   //EventHandler
   const playSongHandler = () => {
     if (isPlaying) {
