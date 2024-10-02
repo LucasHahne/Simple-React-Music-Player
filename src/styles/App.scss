@@ -10,6 +10,11 @@ h3 {
   color: rgb(54, 54, 54);
 }
 
+@font-face {
+  font-family: "Lato";
+  src: url(../fonts/Lato-Regular.ttf) format("truetype");
+}
+
 body {
   font-family: "Lato", sans-serif;
 }
