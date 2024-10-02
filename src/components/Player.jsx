@@ -6,8 +6,7 @@ import {
   faAngleRight,
 } from "@fortawesome/free-solid-svg-icons";
 
-import { useEffect } from "react";
-import { playAudio } from "../util";
+// import { playAudio } from "../util"; Not neeeded by using async await later on
 
 const Player = ({
   currentSong,
@@ -21,10 +20,10 @@ const Player = ({
   setSongs,
 }) => {
   //Ref
-  useEffect(() => {
-    // add active state
-    const newSong = songs.map((e) => {
-      if (e.id === currentSong.id) {
+
+  const activeLibraryHandler = (nextPrev) => {
+    const newSongs = songs.map((e) => {
+      if (e.id === nextPrev.id) {
         return {
           ...e,
           active: true,
@@ -36,8 +35,10 @@ const Player = ({
         };
       }
     });
-    setSongs(newSong);
-  }, [currentSong]);
+    setSongs(newSongs);
+  };
+
+  // add active state
   //States
   // currentTime needs to 0 as otherwise the Input throws an error. Even if it's directly updated
 
@@ -57,20 +58,22 @@ const Player = ({
     setSongInfo({ ...songInfo, currentTime: e.target.value });
   };
 
-  const skipTrackHandler = (direction) => {
+  const skipTrackHandler = async (direction) => {
     let currentIndex = songs.findIndex((e) => e.id === currentSong.id);
-    if (direction === "back") {
-      currentIndex === 0
-        ? setCurrentSong(songs[songs.length - 1])
-        : setCurrentSong(songs[currentIndex - 1]);
-    }
     if (direction === "forward") {
-      setCurrentSong(songs[(currentIndex + 1) % songs.length]);
+      await setCurrentSong(songs[(currentIndex + 1) % songs.length]);
+      activeLibraryHandler(currentSong);
       // currentIndex === songs.length - 1
       //   ? setCurrentSong(songs[0])
       //   : setCurrentSong(songs[currentIndex + 1]);
     }
-    playAudio(isPlaying, audioRef);
+    if (direction === "back") {
+      currentIndex === 0
+        ? setCurrentSong(songs[songs.length - 1])
+        : setCurrentSong(songs[currentIndex - 1]);
+      activeLibraryHandler(currentSong);
+    }
+    isPlaying && audioRef.current.play();
   };
 
   const getTime = (time) => {

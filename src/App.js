@@ -2,7 +2,7 @@ import Player from "./components/Player";
 import Song from "./components/Song";
 import { chillHop } from "./data";
 import "./styles/App.scss";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Library from "./components/Library";
 import Nav from "./components/Nav";
 
@@ -21,8 +21,26 @@ function App() {
     const duration = e.target.duration;
     setSongInfo({ ...songInfo, currentTime: current, duration: duration });
   };
+
+  useEffect(() => {
+    if (isPlaying) {
+      audioRef.current.play();
+    }
+  }, [currentSong, isPlaying]);
+
+  const songEndHandler = () => {
+    let currentIndex = songs.findIndex((song) => song.id === currentSong.id);
+    setCurrentSong(songs[(currentIndex + 1) % songs.length]);
+  };
+
+  useEffect(() => {
+    if (isPlaying) {
+      audioRef.current.play();
+    }
+  }, [currentSong, isPlaying]);
+
   return (
-    <div className="App">
+    <div className={`App ${libraryStatus ? "library-active" : ""}`}>
       <Nav
         libraryStatus={libraryStatus}
         setLibraryStatus={setLibraryStatus}
@@ -52,6 +70,7 @@ function App() {
         onTimeUpdate={timeUpdateHandler}
         ref={audioRef}
         src={currentSong.audio}
+        onEnded={songEndHandler}
       ></audio>
     </div>
   );

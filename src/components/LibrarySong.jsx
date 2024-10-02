@@ -1,5 +1,5 @@
 import React from "react";
-import { playAudio } from "../util";
+// import { playAudio } from "../util"; Not needed with async await
 
 const LibrarySong = ({
   songs,
@@ -9,8 +9,8 @@ const LibrarySong = ({
   audioRef,
   isPlaying,
 }) => {
-  const songSelectHandler = () => {
-    setCurrentSong(song);
+  const songSelectHandler = async () => {
+    await setCurrentSong(song);
     // add active state
     const newSong = songs.map((e) => {
       if (e.id === song.id) {
@@ -27,7 +27,7 @@ const LibrarySong = ({
     });
     setSongs(newSong);
     // check if song is playing
-    playAudio(isPlaying, audioRef);
+    isPlaying && audioRef.current.play();
   };
 
   return (
