@@ -1,6 +1,6 @@
 {
   "homepage": "https://lucashahne.github.io/Simple-React-Music-Player/",
-  "name": "musicplayer",
+  "name": "simplereactmusicplayer",
   "version": "1.0.2",
   "private": true,
   "dependencies": {
